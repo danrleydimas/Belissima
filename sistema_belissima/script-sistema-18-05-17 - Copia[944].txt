@@ -1,0 +1,74 @@
+create database sistema;
+
+use sistema;
+
+
+
+
+create table Usuario
+( codigo_Usuario integer AUTO_INCREMENT,
+nome varchar(60) not null,
+nivel_Acesso int not null,
+email varchar(50) not null,
+senha numeric(16)not null,
+endereco varchar(50) not null,
+bairro varchar (50) not null,
+telefone varchar(10)not null,
+primary key (codigo_Usuario));
+
+
+create table Situacao
+( codigo_Situacao integer AUTO_INCREMENT,
+descricao varchar(50),
+primary key (codigo_Situacao));
+
+
+
+create table Servico
+(codigo integer AUTO_INCREMENT,
+nome_servico varchar(60) not null,
+preco NUMERIC(10.2) not null,
+primary key (codigo));
+
+
+
+create table Faleconosco
+(codigo_Faleconosco integer AUTO_INCREMENT,
+nome_usuario varchar (60) not null,
+sobrenome_usuario varchar(60) not null,
+email varchar(60) not null,
+mensagem varchar (100) not null,
+primary key (codigo_Faleconosco));
+
+
+
+create table Atendimento
+(codigo_atendimento integer AUTO_INCREMENT,
+datas datetime not null,
+codigo_Usuario integer not null,
+hora time not null,
+codigo_Situacao integer not null,
+codigo integer not null,
+primary key (codigo_Atendimento),
+foreign key (codigo_Situacao) references Situacao,
+foreign key (codigo_Usuario) references Usuario,
+foreign key (codigo) references Servico);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
